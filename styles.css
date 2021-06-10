@@ -25,6 +25,8 @@
 
 .menu ul {
   list-style: none;
+  width: 80%;
+  display: inline-block;
 }
 
 .menu ul li {
@@ -41,6 +43,18 @@
 .menu ul li a:hover {
   background-color: #42b881;
   font-size: 1.1em;
+}
+
+.menu .btn {
+  color: #000000 !important;
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px;
+  text-decoration: none !important;
+  background-color: #fff;
 }
 
 .main {
