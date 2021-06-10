@@ -97,16 +97,7 @@
                             }
                         }
                     }
-                    /*if (isset($_POST['eliminar'])){
-                        $id=$_POST['id'];
-
-                        $eliminar ="DELETE FROM personal WHERE id_empleado = '$id'";
-                        $resultado=	mysqli_query($conectar,$eliminar);  //Ejecutamos la instruccion
-                        if (!$resultado){
-                            echo "Error al registrar datos";
-                        }
-                    }*/
-
+                    
                     include "includes/db/consultaProveedores.php";
 
                 ?>
