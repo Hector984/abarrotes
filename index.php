@@ -22,5 +22,5 @@
         <script src="script.js"></script>
     </body>
     
-    <?php include "includes/footer.php"; ?>
+    <?php require_once "includes/footer.php"; ?>
 </html>
