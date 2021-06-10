@@ -1,4 +1,5 @@
 <?php
+$conectar = conectar();
 $consulta="select * from vista_productos;";
 $ejecutaConsulta=mysqli_query($conectar, $consulta);
 $VerFilas=mysqli_num_rows($ejecutaConsulta); //numero de filas

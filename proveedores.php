@@ -21,25 +21,11 @@
                 
                 <div class="fila">
                     <div class="col" style="width: 50%; border: 1px solid black;">
-                        <h2>Registrar nuevo empleado</h2><br>
+                        <h2>Registrar nuevo proveedor</h2><br>
                         <form action="personal.php" method="POST">
                             
-                            <h3>Nombre</h3>
-
-                            <div class="fila">
-                                <div class="col" style="width: 30%;">
-                                    <label for="nombre">Nombre(s):</label><br>
-                                    <input type="text" name="nombre" maxlength="50">
-                                </div>
-                                <div class="col" style="width: 30%;">
-                                    <label for="app">Apellido paterno:</label><br>
-                                    <input type="text" name="app" maxlength="50">
-                                </div>
-                                <div class="col" style="width: 30%;">
-                                    <label for="apm">Apellido materno:</label><br>
-                                    <input type="text" name="apm" maxlength="50">
-                                </div>
-                            </div>
+                            <label for="nombre">Nombre completo:</label><br>
+                            <input class="inputtxt" type="text" name="nombre" maxlength="50"><br><br><hr><br>
 
                             <h3>Direccion</h3><br>
 
@@ -105,19 +91,13 @@
 
                     if (isset($_POST['add'])) {
                         $nombre=$_POST['nombre'];
-                        $app=$_POST['app'];
-                        $apm=$_POST['apm'];
                         $calle=$_POST['calle'];
                         $numero=$_POST['numero'];
                         $colonia=$_POST['colonia'];
                         $municipio=$_POST['municipio'];
                         $telefono=$_POST['telefono'];
-                        $correo=$_POST['correo'];
-                        $pass=$_POST['pass'];
 
-                        $verificarEmpleadoNoRegistrado = "select id_empleado from personal where ()" ;
-
-                        $registro= "INSERT INTO personal (nombre_empleado,apellido_paterno,apellido_materno,calle,numero,colonia,municipio,telefono,correo,password) VALUES ('$nombre','$app','$apm','$calle','$numero','$colonia','$municipio','$telefono','$correo','$pass');";
+                        $registro= "INSERT INTO personal (nombre_empleado,calle,numero,colonia,municipio,telefono) VALUES ('$nombre','$calle','$numero','$colonia','$municipio','$telefono');";
                         $resultado=	mysqli_query($conectar,$registro);  //Ejecutamos la instruccion
                         if (!$resultado){
                             echo "Error al registrar datos";

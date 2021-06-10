@@ -45,7 +45,6 @@
 
 .main {
   border: 1px solid #000;
-  height: 900px;
   width: 85%;
   margin-left: 100px;
   box-shadow: 10px 10px 10px #8888;
@@ -96,24 +95,6 @@ table {
 
 .col {
   float: left;
-  padding: 15px;
-}
-
-.col50 {
-  float: left;
-  width: 50%;
-  padding: 15px;
-}
-
-.col40 {
-  float: left;
-  width: 40%;
-  padding: 15px;
-}
-
-.col60 {
-  float: left;
-  width: 60%;
   padding: 15px;
 }
 
