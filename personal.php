@@ -102,7 +102,6 @@
                 <?php
                     include "includes/db/conexionEncargado.php";
                     $conectar = conectar();
-
                     if (isset($_POST['add'])) {
                         $nombre=$_POST['nombre'];
                         $app=$_POST['app'];
@@ -115,15 +114,28 @@
                         $correo=$_POST['correo'];
                         $pass=$_POST['pass'];
 
-                        $verificarEmpleadoNoRegistrado = "select id_empleado from personal where ()" ;
+                        if (empty($nombre)||empty($app)||empty($apm)||empty($calle)||empty($numero)||empty($colonia)||empty($municipio)||empty($telefono)||empty($correo)||empty($pass)) {
+                            //datos incompletos
+                            echo "<p style='text-align:center'>Datos incompletos, verifique la información introducida</p><br>";
+                        } else {
+                            $verificarEmpleadoNoRegistrado = "select id_empleado from personal where (nombre_empleado = '$nombre') and (apellido_p = '$app') and (apellido_m = '$apm');" ;
+                            
+                            $ejecutaConsulta=mysqli_query($conectar, $verificarEmpleadoNoRegistrado);
+                            $VerFilas=mysqli_num_rows($ejecutaConsulta);
+                            $filas=mysqli_fetch_array($ejecutaConsulta);
 
-                        $registro= "INSERT INTO personal (nombre_empleado,apellido_paterno,apellido_materno,calle,numero,colonia,municipio,telefono,correo,password) VALUES ('$nombre','$app','$apm','$calle','$numero','$colonia','$municipio','$telefono','$correo','$pass');";
-                        $resultado=	mysqli_query($conectar,$registro);  //Ejecutamos la instruccion
-                        if (!$resultado){
-                            echo "Error al registrar datos";
-                        } /*else {
-                            echo "Registro exitoso";
-                        }*/
+                            if ($VerFilas == 1) {
+                                echo "<p style='text-align:center'>Empleado ya registrado, cuenta con el Id de empleado : ".$filas[0]."</p><br>";
+                            } else {
+                                $registro= "INSERT INTO personal (nombre_empleado,apellido_paterno,apellido_materno,calle,numero,colonia,municipio,telefono,correo,password) VALUES ('$nombre','$app','$apm','$calle','$numero','$colonia','$municipio','$telefono','$correo','$pass');";
+                                $resultado=	mysqli_query($conectar,$registro);  //Ejecutamos la instruccion
+                                if (!$resultado){
+                                    echo "<p style='text-align:center'>Error al registrar</p><br>";
+                                } else {
+                                    echo "<p style='text-align:center'>Registro exitoso</p><br>";
+                                }
+                            }
+                        }
                     }
                     if (isset($_POST['eliminar'])){
                         $id=$_POST['id'];
