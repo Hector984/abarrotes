@@ -16,6 +16,9 @@
         <li>
             <a href="personal.php">Personal</a>
         </li>
+        <!-- <li>
+            <a href="ventas.php">Ventas</a>
+        </li> -->
         <li>
             <a href="">Contacto</a>
         </li>
