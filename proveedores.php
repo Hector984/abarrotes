@@ -20,9 +20,10 @@
             <div class="main">
                 
                 <div class="fila">
+                    <div class="col" style="width: 25%;"></div>
                     <div class="col" style="width: 50%; border: 1px solid black;">
                         <h2>Registrar nuevo proveedor</h2><br>
-                        <form action="personal.php" method="POST">
+                        <form action="proveedores.php" method="POST">
                             
                             <label for="nombre">Nombre proveedor:</label><br>
                             <input class="inputtxt" type="text" name="nombre" maxlength="50"><br><br><hr><br>
@@ -56,19 +57,7 @@
 
                         </form>
                     </div>
-                    <div class="col"></div>
-                    <div class="col" style="width: 40%; border: 1px solid black;">
-                        <h2>Eliminar empleado del registro</h2><br>
-                        <form action="personal.php" method="POST">
-                            <label for="id">Id de empleado:</label><br>
-                            <input class="inputtxt" type="text" name="id" maxlength="50"><br><br>
-
-                            <input type="submit" name="eliminar" value="Eliminar">
-
-                        </form>
-                    </div>
                 </div><br>
-
 
                 <?php
                     include "includes/db/conexionEncargado.php";
@@ -82,15 +71,33 @@
                         $municipio=$_POST['municipio'];
                         $telefono=$_POST['telefono'];
 
-                        $registro= "INSERT INTO personal (nombre_empleado,calle,numero,colonia,municipio,telefono) VALUES ('$nombre','$calle','$numero','$colonia','$municipio','$telefono');";
-                        $resultado=	mysqli_query($conectar,$registro);  //Ejecutamos la instruccion
-                        if (!$resultado){
-                            echo "Error al registrar datos";
-                        } /*else {
-                            echo "Registro exitoso";
-                        }*/
+                        if (empty($nombre)||empty($calle)||empty($numero)||empty($colonia)||empty($municipio)||empty($telefono)){
+                            //Datos incompletos
+                            echo "<p style='text-align:center'>Datos incompletos, verifique la información introducida</p><br>";
+
+                        } else {
+                            $verificarProveedorNoRegistrado = "select id_proveedor from proveedores where (nombre_proveedor = '$nombre') or ((calle = '$calle') and (numero = '$numero') and (colonia = '$colonia') and (municipio = '$municipio'));" ;
+                            
+                            $ejecutaConsulta=mysqli_query($conectar, $verificarProveedorNoRegistrado);
+                            $VerFilas=mysqli_num_rows($ejecutaConsulta);
+                            $filas=mysqli_fetch_array($ejecutaConsulta);
+
+                            if ($VerFilas == 1){
+                                //Ya existe proveedor
+                                echo "<p style='text-align:center'>Proveedor ya registrado, Id de proveedor: ".$filas[0]."</p><br>";
+                            } else {
+                                //Registra el nuevo proveedor
+                                $registro="INSERT INTO proveedores (nombre_proveedor,calle,numero,colonia,municipio,telefono_movil) VALUES ('$nombre','$calle','$numero','$colonia','$municipio','$telefono');";
+                                $resultado=	mysqli_query($conectar,$registro);
+                                if (!$resultado){
+                                    echo "<p style='text-align:center'>Ha ocurrido un error</p><br>";
+                                } else {
+                                    echo "<p style='text-align:center'>Registro exitoso</p><br>";
+                                }
+                            }
+                        }
                     }
-                    if (isset($_POST['eliminar'])){
+                    /*if (isset($_POST['eliminar'])){
                         $id=$_POST['id'];
 
                         $eliminar ="DELETE FROM personal WHERE id_empleado = '$id'";
@@ -98,9 +105,9 @@
                         if (!$resultado){
                             echo "Error al registrar datos";
                         }
-                    }
+                    }*/
 
-                    include "includes/db/consultaPersonal.php";
+                    include "includes/db/consultaProveedores.php";
 
                 ?>
             </div>
