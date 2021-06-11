@@ -1,9 +1,9 @@
 <?php
     function conectar() {
-        $user = "pma";
+        $user = "pma";//pma
         $pass = "";
         $server = "localhost";
-        $db = "abarrotespantera";
+        $db = "abarrotespantera";//abarrotespantera
         
         $conexion = new mysqli($server,$user,$pass,$db);
 

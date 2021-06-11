@@ -53,13 +53,17 @@
   border-radius: 5px;
   font-size: 15px;
   padding: 5px;
-  text-decoration: none !important;
   background-color: #fff;
+}
+
+.menu .btn a {
+  text-decoration: none !important;
 }
 
 .main {
   border: 1px solid #000;
   width: 85%;
+  height: 500px;
   margin-left: 100px;
   box-shadow: 10px 10px 10px #8888;
   padding: 10px;
@@ -97,7 +101,10 @@ footer ul li i:hover {
   padding: 10px 10px;
 }
 
-table, th, td, tr {
+table,
+th,
+td,
+tr {
   border: 1px solid black;
   padding: 10px;
   border-collapse: collapse;

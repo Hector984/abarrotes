@@ -1,3 +1,4 @@
+</body>
 <footer id="contacto">
     <div>
         <p class="info">Soy Hèctor Antonio Jimenez Manzo y estas son mis redes</p>
