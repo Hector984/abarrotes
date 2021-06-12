@@ -19,4 +19,6 @@
         $cerrar = mysqli_close(conectar());
         return $cerrar;
     }*/
+
+    
 ?>

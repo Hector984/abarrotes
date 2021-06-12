@@ -4,6 +4,7 @@
 <div class="main" style="height:500px;">
 
     <div class="pricipal" style="text-align:center;">
+    
         <h1 style="margin: 20px;margin-bottom:50px;">Inicia sesion en el sistema</h1>
             <form action="loggin.php" method="POST" style="display:block;border:1px solid #000;width: 50%;height:auto;margin-left:300px">
                 <label for="email" style="display:block;margin: 10px 0">Email:</label>

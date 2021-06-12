@@ -19,4 +19,10 @@
         $cerrar = mysqli_close(conectar());
         return $cerrar;
     }
+    
+    //Esto lo agregue por el conflicto d elas sesiones. NO hay que borrarlo
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    
 ?>

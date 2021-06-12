@@ -7,3 +7,4 @@
     } else {
         include "includes/headers/header.php";
     }
+?>

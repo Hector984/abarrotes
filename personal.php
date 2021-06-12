@@ -17,12 +17,12 @@
         <div class="container">
             <?php include "includes/header.php" ?>
             
-            <div class="main">
+            <div class="main" style="height: 565px;">
                 
                 <div class="fila">
                     <div class="col" style="width: 50%; border: 1px solid black;">
                         <h2>Registrar nuevo empleado</h2><br>
-                        <form action="personal.php" method="POST">
+                        <form action="registrarPersonal.php" method="POST">
                             
                             <h3>Nombre</h3>
 
@@ -81,7 +81,7 @@
                                 </div>
                             </div><br>
 
-                            <input style="font-size:15px;width:20%;" type="submit" name="add" value="Añadir">
+                            <input style="width: 100px;height: 30px;margin-bottom: 20px;background-color:#42b881;color:#fff " type="submit" name="add" value="Añadir">
 
                         </form>
                     </div>
@@ -92,7 +92,7 @@
                             <label for="id">Id de empleado:</label><br>
                             <input class="inputtxt" type="text" name="id" maxlength="50"><br><br>
 
-                            <input type="submit" name="eliminar" value="Eliminar">
+                            <input type="submit" name="eliminar" value="Eliminar" style="width: 100px;height: 30px;margin-bottom: 20px;background-color:#42b881;color:#fff ">
 
                         </form>
                     </div>
@@ -100,6 +100,7 @@
 
 
                 <?php
+                /*
                     include "includes/db/conexionEncargado.php";
                     $conectar = conectar();
 
@@ -136,7 +137,7 @@
                     }
 
                     include "includes/db/consultaPersonal.php";
-
+                    
                 ?>
             </div>
         </div>

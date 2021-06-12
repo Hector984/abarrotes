@@ -1,7 +1,10 @@
 <?php require_once "includes/headers/header.php" ?>
+
         <!--Caja principal-->
             <div class="main">
-                <p>vfdbf</p>
+            
+                    <p></p>
+
             </div>
         
 
