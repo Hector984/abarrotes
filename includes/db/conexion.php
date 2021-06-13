@@ -1,5 +1,5 @@
 <?php
-    function conectar() {
+    /*function conectar() {
         $user = "pma";//pma
         $pass = "";
         $server = "localhost";
@@ -13,7 +13,7 @@
         
         return $conexion;
     
-    }
+    }*/
 
     /*function cerrarConexion(){
         $cerrar = mysqli_close(conectar());

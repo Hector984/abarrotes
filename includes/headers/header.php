@@ -25,7 +25,7 @@
                         </li>
                         
                         <!--Muestra las pestañas que debe ver el publico en general-->
-                        <?php session_start();?>
+                        
                         <?php if(!isset($_SESSION['usuario'])):?>
                             <li>
                                 <a href="">Nuevos</a>
@@ -65,4 +65,4 @@
                     
                 <?php endif; ?>    
             </header>
-        </div>
+        </div><!--Fin del container-header-->

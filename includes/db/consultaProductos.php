@@ -1,6 +1,8 @@
 <?php
+require_once "conexionEncargado.php";
+
 $conectar = conectar();
-$consulta="select * from vista_productos;";
+$consulta="SELECT * FROM productos;";//vista_productos
 $ejecutaConsulta=mysqli_query($conectar, $consulta);
 $VerFilas=mysqli_num_rows($ejecutaConsulta); //numero de filas
 $filas=mysqli_fetch_array($ejecutaConsulta);

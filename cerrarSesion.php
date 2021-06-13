@@ -2,7 +2,7 @@
 /*Aqui voy a incluir la conexion a tu base de datos pero la voy a comentar 
 Por el momento voy a añadir la conexion a mi base de datos pero la borras cuando presentemos el proyecto para no tener problemas*/
 
-//require_once "includes/db/conexion.php";
+//require_once "includes/db/conexionEncargado.php";
 
 $usuario = 'root';
 $host = 'localhost';

@@ -10,7 +10,7 @@
                 <i class="fab fa-twitter-square"></i>
             </li>
             <li>
-                <i class="fab fa-github"></i>
+                <a href="https://github.com/Hector984/" target="_blank"><i class="fab fa-github"></i></a>
             </li>
         </ul>
     </div>
@@ -25,7 +25,7 @@
                 <i class="fab fa-twitter-square"></i>
             </li>
             <li>
-                <i class="fab fa-github"></i>
+                <a href="https://github.com/AdolfoMD36" target="_blank"><i class="fab fa-github"></i></a>
             </li>
         </ul>
     </div>
