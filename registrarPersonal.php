@@ -26,6 +26,7 @@ include "includes/db/conexionEncargado.php";
                         }*/
         }
 
+        //Aliminar el personal del sistema por id
         if (isset($_POST['eliminar'])){
             $id=$_POST['id'];
 

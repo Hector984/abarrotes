@@ -6,7 +6,7 @@
                 <div class="fila" style="display:flex;justify-content:space-around;">
                     <div class="col" style="width: 50%; border: 1px solid black;">
                         <h2 style="text-align:center;margin:10px 0;">Registrar nuevo empleado</h2><br>
-                        <form action="registrarPersonal.php" method="POST">
+                        <form action="personal.php" method="POST">
                             
                             <h3 style="margin-left:20px;">Nombre</h3>
 
@@ -84,7 +84,7 @@
 
 
                 <?php
-                /*
+                
                     include "includes/db/conexionEncargado.php";
                     $conectar = conectar();
 
@@ -109,7 +109,7 @@
                         } /*else {
                             echo "Registro exitoso";
                         }*/
-                    /*}
+                    }
                     if (isset($_POST['eliminar'])){
                         $id=$_POST['id'];
 
@@ -121,7 +121,7 @@
                     }
 
                     include "includes/db/consultaPersonal.php";
-                    */
+                    
                 ?>
             </div>
         </div>

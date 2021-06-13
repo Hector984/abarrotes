@@ -7,11 +7,16 @@ require_once "consultaProductos.php";
         $precio=$_POST['precio'];
         $cantidad=$_POST['cantidad'];
         $codigo=$_POST['codigo'];
+        $error = array();
+
+        //if(empty($nombre)){
+            //$errores['nombre'];
+       // }
 
         if ((empty($nombre) && empty($precio) && empty($cantidad) && empty($codigo)|| (!empty($nombre) && empty($precio) && empty($cantidad) && empty($codigo)) || (!empty($nombre) && !empty($precio) && !empty($cantidad) && empty($codigo)))){
             //Registro de datos incorrectos
-            $error = "Error al registrar el producto";
-            $_SESION['errorRegistro'] = "<p style='text-align:center'>Datos incorrectos, verifique la información introducida 1</p><br>";
+            $error['error'] = "Error al registrar el producto";
+           $_SESION['errorRegistro'] = $error;
             echo "<p style='text-align:center'>Datos incorrectos, verifique la información introducida 1</p><br>";
 
         } else if (!empty($nombre) && empty($precio) && !empty($cantidad)){
@@ -63,7 +68,7 @@ require_once "consultaProductos.php";
                 $_SESSION['registro'] = $resultado;
                 
                 if (!$resultado){
-                    $_SESION['errorRegistro'] = "Error al registrar el producto 5";
+                    $_SESION['errorRegistro'] = "Error al registrar el producto";
                     echo "<p style='text-align:center'>Error al registrar</p><br>";
                 } else {
                     echo "<p style='text-align:center'>Registro exitoso</p><br>";

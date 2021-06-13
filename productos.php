@@ -9,10 +9,11 @@
                     <h3 style="color: green;">Registro exitoso </h3>
                 <?php elseif(isset($_SESSION['actualizarCantidad'])): ?>
                     <h3 style="color: blue;">Se actualizo el producto</h3>
-                <?php endif; ?>
-                <?php if(isset($_SESSION['errorRegistro'])): ?>
+                <?php else: ?>
                     <h3 style="color: red;">Error al registrar el producto</h3>
                 <?php endif; ?>
+                
+              
                 <form action="includes/db/agregarProductos.php" method="POST" style="text-align:center;">
                     <style> .inputtxt { width:70%; } </style>
                     
