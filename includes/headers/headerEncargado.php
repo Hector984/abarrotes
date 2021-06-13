@@ -7,15 +7,18 @@
         <li>
             <a href="productos.php">Productos</a>
         </li>
-        <li>
+        <!-- <li>
             <a href="inventario.php">Inventario</a>
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
             <a href="proveedores.php">Proveedores</a>
-        </li>
+        </li> -->
         <li>
             <a href="personal.php">Personal</a>
         </li>
+        <!-- <li>
+            <a href="ventas.php">Ventas</a>
+        </li> -->
         <li>
             <a href="">Contacto</a>
         </li>
