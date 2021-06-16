@@ -1,11 +1,15 @@
 <?php
     require_once "includes/db/conexionEncargado.php";
+
+    $conectar = conectar();
+    $metodoPago = $_POST['metodo'];
                         
         if(isset($_POST['add'])){
-            $conectar = conectar();
+            
            
             $idProducto = $_POST['id'];
             $cantidadProducto = $_POST['cantidad'];
+            
 
             $consulta="SELECT id_producto,nombre_producto,cantidad,precio_venta,(precio_venta*$cantidadProducto) AS 'unitario' FROM productos WHERE id_producto = $idProducto;";
             $ejecutaConsulta=mysqli_query($conectar, $consulta);
@@ -43,12 +47,39 @@
 
                 //unset($_SESSION['venta']);
                 //unset($_SESSION['total']);
-            //header("Location:ventas.php");
-            }
-        }
+            header("Location:ventas.php");
+            }//Fin del if
+        }//Fin del POSt['add']
         
         if(isset($_POST['enviar'])){
-            header("Loction:finalizarVenta.php");
-        }
-    header("Location:ventas.php");
+             //Insertamos en la tabla compras
+            $idEmpleado = $_SESSION['usuario']['id_empleado'];
+            $compra = "INSERT INTO compra VALUES(null,null,$idEmpleado,CONCAT(CURDATE(),' ',CURTIME()),'$metodoPago');";
+            
+            $queryCompra = mysqli_query($conectar,$compra);
+            //$compraProductos = mysqli_fetch_assoc($queryCompra);
+            
+
+             //Insertar en ticket
+             $sqlLastId = "SELECT LAST_INSERT_ID() AS 'compra';";
+             $queryId = mysqli_query($conectar,$sqlLastId);
+             $compra_id = mysqli_fetch_assoc($queryId); 
+             $compra_id = (int)$compra_id['compra'];
+             //var_dump(gettype($_SESSION['venta'][1]['id_producto']));
+            
+            for($i = 0;$i < count($_SESSION['venta']); $i++){
+                
+                $idP = (int)$_SESSION['venta'][$i]['id_producto'];//id del producto
+                $cant = (int)$_SESSION['venta'][$i]['cantidad'];//cantidad del producto
+                
+                $sqlTicket = "INSERT INTO ticket VALUES (null,$compra_id,$idP,$cant);";
+                
+                $queryTicket = mysqli_query($conectar,$sqlTicket);
+                
+            }//Fin del for
+            
+            header("Location:finalizarVenta.php");
+        }//Fin del POSt['enviar']
+
+    //header("Location:ventas.php");
 ?>

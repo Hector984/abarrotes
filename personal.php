@@ -85,7 +85,7 @@
 
                 <?php
                 
-                    include "includes/db/conexionEncargado.php";
+                    //include "includes/db/conexionEncargado.php";
                     $conectar = conectar();
 
                     if (isset($_POST['add'])) {
@@ -107,9 +107,10 @@
 
                         } else {
                             //datos completos, verificar no esté previamente registrado
-                            $verificarEmpleadoNoRegistrado = "select id_empleado from personal where (nombre_empleado = '$nombre') and (apellido_p = '$app') and (apellido_m = '$apm');" ;
+                            $verificarEmpleadoNoRegistrado = "SELECT id_empleado FROM personal WHERE (nombre_empleado = '$nombre') AND (apellido_paterno = '$app') AND (apellido_materno = '$apm');" ;
                             
                             $ejecutaConsulta=mysqli_query($conectar, $verificarEmpleadoNoRegistrado);
+                            
                             $VerFilas=mysqli_num_rows($ejecutaConsulta);
                             $filas=mysqli_fetch_array($ejecutaConsulta);
 
@@ -175,10 +176,11 @@
                         }
                     }
 
-                    include "includes/db/consultaPersonal.php";
+                    //include "includes/db/consultaPersonal.php";
                     
                 ?>
             </div>
+            
         </div>
 
         <!--Archivos de Javascript-->

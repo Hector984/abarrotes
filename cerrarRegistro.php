@@ -41,8 +41,8 @@ if(isset($_SESSION['errorRegistro'])){
 }
 
 //Sesion de carrito de compra
-if(isset($_SESSION['ventas'])){
-    unset($_SESSION['ventas']);
+if(isset($_SESSION['venta'])){
+    unset($_SESSION['venta']);
 }
 
 //Sesion que arroja un error si el producto no esta en la base de datos

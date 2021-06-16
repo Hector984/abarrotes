@@ -1,4 +1,5 @@
 <?php require_once "includes/headers/header.php"; ?>
+<?php require_once "cerrarRegistro.php"; ?>
 
     <div class="main">
     
@@ -9,5 +10,6 @@
         
     </div>
 
-<?php require_once "cerrarRegistro.php"; ?>
+
+
 <?php include "includes/footer.php"; ?>
